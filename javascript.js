@@ -27,10 +27,10 @@ const Player=function(name,marker){
 
 const flow =(function(){//player one starts than player two untill winner
 const counter=0;
-const ifWinner=(function (gameboard) {//recives an array and marker and returns if winner
+const winner=(function (gameboard) {//recives an array and returns if winner draw or nothing
     let b=true;
-  for (let i = 0; i < 3; i++) {//each row all j=
-     const marker=gameboard[i][0]
+  for (let i = 0; i < 3; i++) {//each row all j= 
+     const marker=gameboard[i][0];
      if (marker!==null) {
         for (let j = 1; j <3; j++) {// i  is row j is column
             if(marker!==gameboard[i][j]) 
@@ -59,10 +59,27 @@ const ifWinner=(function (gameboard) {//recives an array and marker and returns 
        {return marker;}
        else b=true;
     }
- 
+}
+   let marker=gameboard[0][0];//top to bottom diagonal
+    if(marker===gameboard[1][1]&&marker===gameboard[2][2]&&marker!==null)
+ {return marker;}
+ marker=gameboard[2][0];//bottom to to diagonal
+ if(marker===gameboard[1][1]&&marker===gameboard[0][2]&&marker!==null)
+{return marker;
+}
+//check if borad full for draw
+b=true;
+ for (let i = 0; i < 3; i++) {//each row all j=
+        for (let j = 1; j <3; j++) {// i  is row j is column
+            if(null===gameboard[i][j]) 
+            {   b=false;
+                break;
+            }}}
+(b)? "draw":null;
+
  }
-})
+)
 
-
+return{winner};
 })();
 //console.log(Players.PlayerOne)
