@@ -70,13 +70,12 @@ const winner=(function (gameboard) {//recives an array and returns if winner dra
 //check if borad full for draw
 b=true;
  for (let i = 0; i < 3; i++) {//each row all j=
-        for (let j = 1; j <3; j++) {// i  is row j is column
+        for (let j = 0; j <3; j++) {// i  is row j is column
             if(null===gameboard[i][j]) 
             {   b=false;
-                break;
             }}}
-(b)? "draw":null;
-
+if (b) return "draw";
+return "not done yet";
  }
 )
 
