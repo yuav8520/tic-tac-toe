@@ -1,0 +1,30 @@
+container{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: 100px;
+    left: 40svw;
+    top: 20svh;
+}
+container>*>div{
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    font-size: 90px;
+    text-align: center;
+    
+}
+.restart{
+    position: relative;
+    left: 48.25svw;
+    top: 71svh;
+}
+.text{
+    position: relative;
+    left: 43.5svw;
+    top: 62svh;
+
+}
+body{
+    height: 100svh;
+}
