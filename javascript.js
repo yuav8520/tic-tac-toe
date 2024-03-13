@@ -54,13 +54,28 @@ const GameBorad=(function(){
 return{gameboard,oddOrEven,restart,addtile,resetBoard,gameBoardConsole};
 
 })();
-const Player=function(name,marker){
-   const returnMarker=()=>{
-        return marker;}
-    const returnName=()=>{
-        return name;}    
-            return{returnMarker,returnName};
-        }();
+const changeNames=function(event){
+    const body=document.querySelector('body');
+       // Prevent the default form submission behavior
+       event.preventDefault();
+      const playerOneInput=document.querySelector('#One').value;
+    const playerTwoInput=document.querySelector('#Two').value;
+    if(playerOneInput!==""){
+        //change player one name
+        const playerOne=document.querySelector('#playerOne');
+        playerOne.textContent=playerOneInput;
+    }
+    if(playerTwoInput!==""){
+        //change player two name
+        const playerTwo=document.querySelector('#playerTwo');
+        playerTwo.textContent=playerTwoInput;
+    }
+}
+const Players=function(){//how to add id later for now add the name getter
+    
+    const form=document.querySelector('#lol');
+    form.addEventListener('submit',changeNames);
+        }
        
 
 
@@ -123,6 +138,8 @@ const turn =function(e){//cheacks whos turn this is
     const item=e.target;
     const body=document.querySelector('body');
     const text=document.querySelector('.text');
+    const playerOne=document.querySelector('#playerOne');
+    const playerTwo=document.querySelector('#playerTwo');
     console.log(text);
     if(item.textContent===""){
     item.textContent=GameBorad.oddOrEven();}
@@ -136,7 +153,10 @@ const turn =function(e){//cheacks whos turn this is
         }
         else{//if game is deciceve
             if(text.textContent==="")
-            {text.textContent='and the winner is '+winner;}
+            {if(winner==='X')
+                {text.textContent='and the winner is '+playerOne.textContent;}
+                else {text.textContent='and the winner is '+playerTwo.textContent;}
+            }
         }
         body.append(text);
      }
@@ -155,5 +175,7 @@ const restartBoard=function(e){
    NewText.textContent='';
    body.append(NewText);
 }
+
 GameBorad.restart();
 GameBorad.gameboard();
+Players();
