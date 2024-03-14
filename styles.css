@@ -5,6 +5,7 @@ container{
     grid-template-rows: 100px;
     left: 40svw;
     top: 20svh;
+    max-width: 500px;
 }
 container>*>div{
     border: 2px solid black;
@@ -16,7 +17,7 @@ container>*>div{
 }
 .restart{
     position: relative;
-    left: 48.25svw;
+    left: 12svw;
     top: 71svh;
 }
 .text{
@@ -27,4 +28,13 @@ container>*>div{
 }
 body{
     height: 100svh;
+    width: 100svw;
+}
+
+players{
+    display: inline-block;
+    position: relative;
+left: 40dvw;
+top: 5%;
+width: 550px;
 }

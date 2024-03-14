@@ -154,8 +154,14 @@ const turn =function(e){//cheacks whos turn this is
         else{//if game is deciceve
             if(text.textContent==="")
             {if(winner==='X')
-                {text.textContent='and the winner is '+playerOne.textContent;}
-                else {text.textContent='and the winner is '+playerTwo.textContent;}
+                {if(playerOne.textContent!==''){
+                    text.textContent='and the winner is '+playerOne.textContent;}
+                else text.textContent='and the winner is X';
+            }
+                else {if(playerTwo.textContent!==''){
+                    text.textContent='and the winner is '+playerTwo.textContent;}
+                else text.textContent='and the winner is O';
+                }
             }
         }
         body.append(text);
@@ -169,11 +175,12 @@ const restartBoard=function(e){
    text.remove();
    container.remove();
    GameBorad.gameboard();
-   GameBorad.resetBoard();
+
    const NewText=document.createElement('div');//new text
    NewText.classList.add('text');
    NewText.textContent='';
    body.append(NewText);
+   GameBorad.resetBoard();
 }
 
 GameBorad.restart();
