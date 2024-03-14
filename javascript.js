@@ -186,3 +186,4 @@ const restartBoard=function(e){
 GameBorad.restart();
 GameBorad.gameboard();
 Players();
+
